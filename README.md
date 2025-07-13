@@ -46,4 +46,6 @@ Here's the data inside a sample SGQR (00020101021126380009SG.PAYNOW010100211+659
 
 Let's convert it to a data URL!
 
+[Pay!](data:application/emv-qrcps-mpm+sgqr;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC)
+
 <a href="data:application/emv-qrcps-mpm+sgqr;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC">Pay!</a>
