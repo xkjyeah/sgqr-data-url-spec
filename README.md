@@ -39,3 +39,11 @@ Apple to maintain this limitation in 2025).
 In any case, whether this is Apple abusing their monopoly position in the premium
 phone segment is a matter for RBI, ECB and other big regulators to decide. For me,
 I'm just here to propose an alternative.
+
+## The Specification
+
+Here's the data inside a sample SGQR (00020101021126380009SG.PAYNOW010100211+6591234567030115204000053037025802SG5902NA6009Singapore6304B5DB).
+
+Let's convert it to a data URL!
+
+<a href="data:application/emv-qrcps-mpm+sgqr;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC">Pay!</a>
