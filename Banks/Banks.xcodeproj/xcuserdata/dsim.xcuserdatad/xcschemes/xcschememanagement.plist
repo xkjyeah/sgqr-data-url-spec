@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Aspen Bank.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Birch Bank App.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>SGQR Common.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>675161292E2E57D800E002C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>675161392E2E57D900E002C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>675161432E2E57D900E002C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67AE68B82E361F0300ED0B91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67AE68C72E361F0400ED0B91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67AE68D12E361F0400ED0B91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67AE68E82E36201700ED0B91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67AE68F22E36201700ED0B91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
