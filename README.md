@@ -48,5 +48,9 @@ Let's convert it to a data URL!
 
 <a href="data:application/vnd.sg.gov.mas.sgqr-data;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC" download="pay.sgqr">Download!</a>
 
+<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6594445555030115204000053037025802SG5902NA6009Singapore6304AAAA" download="a1.sgqr">Download!</a>
+<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6595556666030115204000053037025802SG5902NA6009Singapore6304BBBB" download="b1.sgqr">Download!</a>
+<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6597778888030115204000053037025802SG5902NA6009Singapore6304CCCC" download="c1.sgqr">Download!</a>
+
 <a href="data:application/vnd.sg.gov.mas.sgqr-data;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC">Open!</a>
 
