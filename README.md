@@ -54,3 +54,30 @@ Let's convert it to a data URL!
 
 <a href="data:application/vnd.sg.gov.mas.sgqr-data;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC">Open!</a>
 
+<script>
+
+function shareSomething() {
+    // Generate a random 8-digit number starting with 8 or 9 to simulate a phone number
+    const randomNumber = Math.floor(10000000 + Math.random() * 90000000);
+
+    const dataText = `00020101021126380009SG.PAYNOW010100211+65${randomNumber}030115204000053037025802SG5902NA6009Singapore6304CCCC`
+    const buf = new TextEncoder().encode(dataText)
+
+    const file = new File(
+        [buf],
+        'sgqr-data.txt',
+        {
+            type: 'application/vnd.sg.gov.mas.sgqr-data'
+        }
+    )
+
+    navigator.share({
+        files: [file]
+    })
+}
+
+</script>
+
+<button onclick="shareSomething()">
+Share?
+</button>
