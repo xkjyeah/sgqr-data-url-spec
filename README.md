@@ -65,7 +65,7 @@ function shareSomething() {
 
     const file = new File(
         [buf],
-        'sgqr-data.txt',
+        `payment_to_${randomNumber}.sgqr`,
         {
             type: 'application/vnd.sg.gov.mas.sgqr-data'
         }
