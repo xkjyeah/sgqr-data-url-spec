@@ -59,7 +59,7 @@ Let's convert it to a data URL!
 
 <script>
 
-function shareSomething(mimeType) {
+function shareSomething(mimeType, extension) {
     // Generate a random 8-digit number starting with 8 or 9 to simulate a phone number
     const randomNumber = Math.floor(80000000 + Math.random() * 20000000);
 
@@ -68,7 +68,7 @@ function shareSomething(mimeType) {
 
     const file = new File(
         [buf],
-        `payment_to_${randomNumber}.sgqr`,
+        `payment_to_${randomNumber}.${extension}`,
         {
             type: mimeType
         }
@@ -81,14 +81,14 @@ function shareSomething(mimeType) {
 
 </script>
 
-<button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data')">
-Share application/vnd.sg.gov.mas.sgqr-data
+<button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data', 'sgqr')">
+Share application/vnd.sg.gov.mas.sgqr-data sgqr
 </button>
 
-<button onclick="shareSomething('text/plain')">
-Share text/plain
+<button onclick="shareSomething('text/plain', 'txt')">
+Share text/plain txt
 </button>
 
-<button onclick="shareSomething('text/vnd.sg.gov.mas.sgqr-data')">
-Share text/vnd.sg.gov.mas.sgqr-data
+<button onclick="shareSomething('text/vnd.sg.gov.mas.sgqr-data', 'sgqs')">
+Share text/vnd.sg.gov.mas.sgqr-data sgqs
 </button>
