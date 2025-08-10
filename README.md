@@ -31,6 +31,9 @@ To quote [Apple documentation](https://developer.apple.com/documentation/xcode/d
 
 Note: Android has no such limitation.
 
+Whatever the reason for Apple's limitations, in this document I am proposing a solution
+by which we can make payment methods like SGQR seamless in a pure online 
+
 So, this is obviously a big fuck-you to payment schemes like SGQR, where the
 goal is to support an entire ecosystem of SGQR-supporting applications, not a
 monopolistic endeavour like Apple Pay. (While UPI didn't exist back in 2010 when [this problem started to be noticed](https://stackoverflow.com/questions/3213911/choosing-what-iphone-app-must-open-one-url-schema), it doesn't make sense for
@@ -56,9 +59,9 @@ Let's convert it to a data URL!
 
 <script>
 
-function shareSomething() {
+function shareSomething(mimeType) {
     // Generate a random 8-digit number starting with 8 or 9 to simulate a phone number
-    const randomNumber = Math.floor(10000000 + Math.random() * 90000000);
+    const randomNumber = Math.floor(80000000 + Math.random() * 20000000);
 
     const dataText = `00020101021126380009SG.PAYNOW010100211+65${randomNumber}030115204000053037025802SG5902NA6009Singapore6304CCCC`
     const buf = new TextEncoder().encode(dataText)
@@ -67,7 +70,7 @@ function shareSomething() {
         [buf],
         `payment_to_${randomNumber}.sgqr`,
         {
-            type: 'application/vnd.sg.gov.mas.sgqr-data'
+            type: mimeType
         }
     )
 
@@ -78,6 +81,14 @@ function shareSomething() {
 
 </script>
 
-<button onclick="shareSomething()">
-Share?
+<button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data')">
+Share application/vnd.sg.gov.mas.sgqr-data
+</button>
+
+<button onclick="shareSomething('text/plain')">
+Share text/plain
+</button>
+
+<button onclick="shareSomething('text/vnd.sg.gov.mas.sgqr-data')">
+Share text/vnd.sg.gov.mas.sgqr-data
 </button>
