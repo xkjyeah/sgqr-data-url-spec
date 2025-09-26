@@ -5,17 +5,19 @@
 	<key>CFBundleIdentifier</key>
 	<string>me.danielsim.Birch</string>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
-	<true/>
+	<false/>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
 			<key>CFBundleTypeName</key>
 			<string>SGQR Payment Code</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>sg.gov.mas.sgqr-data</string>
+				<string>sg.gov.mas.sgqr-data.birch</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
 			<string>sg.gov.mas.sgqr-data</string>
@@ -29,9 +31,9 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>SGQR data</string>
+			<string>SGQR data (Birch)</string>
 			<key>UTTypeIdentifier</key>
-			<string>sg.gov.mas.sgqr-data</string>
+			<string>sg.gov.mas.sgqr-data.birch</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>

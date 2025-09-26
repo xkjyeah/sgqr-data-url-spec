@@ -5,17 +5,55 @@
 	<key>CFBundleIdentifier</key>
 	<string>me.danielsim.Aspen</string>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
-	<true/>
+	<false/>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>text/vnd.sg.gov.mas.sgqr-data</string>
+			</array>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>sg.gov.mas.sgqr-data.aspen-text</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>SGQR Payment Code Text</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>text/plain</string>
+			</array>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Plain Text</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string></string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/vnd.sg.gov.mas.sgqr-data</string>
+			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>CFBundleTypeName</key>
 			<string>SGQR Payment Code</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>sg.gov.mas.sgqr-data</string>
+				<string>sg.gov.mas.sgqr-data.aspen</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
 			<string>sg.gov.mas.sgqr-data</string>
@@ -26,12 +64,33 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>sg.gov.mas.sgqr-data.aspen-text</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>sgqs</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>text/vnd.sg.gov.mas.sgqr-data</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeIconFile</key>
+			<string></string>
+			<key>UTTypeConformsTo</key>
+			<array>
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>SGQR data</string>
+			<string>SGQR data (Aspen)</string>
 			<key>UTTypeIdentifier</key>
-			<string>sg.gov.mas.sgqr-data</string>
+			<string>sg.gov.mas.sgqr-data.aspen</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>

@@ -9,8 +9,8 @@ import SwiftUI
 import SGQR_Common
 
 @main
-struct Aspen_BankApp: App {
-    @State private var document: SGQRDocument = SGQRDocument(text: "0005Empty")
+struct Birch_BankApp: App {
+    @State private var document: SGQRDocument = SGQRDocument(text: "0005Birch")
     
     var body: some Scene {
         WindowGroup {

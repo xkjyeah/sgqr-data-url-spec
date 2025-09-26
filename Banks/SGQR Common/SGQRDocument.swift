@@ -22,7 +22,7 @@ public struct SGQRDocument: FileDocument {
     var fields: [ParsedField]
     
     public static let SAMPLE_DOCUMENT = "0006HELLO!"
-    public static var readableContentTypes = [UTType.sgqrData]
+    public static var readableContentTypes = [UTType.sgqrData, UTType.plainText]
 
     public init(text: String) {
         print("Initializing with text...")
