@@ -1,4 +1,4 @@
-# Proposed specification for SGQR data URL
+# SGQR Sharing Specification
 
 ## Background
 
@@ -110,7 +110,18 @@ Tapping on the notification will transfer control to the main application.
 Data contained in the notification can contain payment destination data, such as recipient, amount, and
 descriptions.
 
+#### 3.3 Sample project
+
 This respository contains an example iPhone project, created with much help from ChatGPT and Gemini.
+
+The iPhone project has two apps:
+* "Aspen" banking app
+* "Birch" banking app
+
+Both these apps support the SGQR Sharing Specification. With this, the end-user is **always
+prompted to choose a supported banking app**. Therefore, there will be no arbitrary preference
+for one app over another. This is the advantage of the Sharing Specification over other possible
+implementations like custom URL schemes or custom file types.
 
 <script>
 
