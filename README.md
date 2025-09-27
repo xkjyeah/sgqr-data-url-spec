@@ -118,7 +118,7 @@ function shareSomething(mimeType, extension) {
     const phone = document.querySelector('#destination').value.slice(0, 8).padStart(8, '0')
     const amount = document.querySelector('#amount').value
 
-    const dataText = `00020101021126380009SG.PAYNOW010100211+65${randomNumber}03011520400005303702${amount.length.toString().padStart(2, '0')}${amount}5802SG5902NA6009Singapore6304CCCC`
+    const dataText = `00020101021126380009SG.PAYNOW010100211+65${phone}03011520400005303702${amount.length.toString().padStart(2, '0')}${amount}5802SG5902NA6009Singapore6304CCCC`
     const buf = new TextEncoder().encode(dataText)
 
     const file = new File(
