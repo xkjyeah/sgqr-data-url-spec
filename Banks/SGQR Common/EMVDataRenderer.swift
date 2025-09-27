@@ -32,6 +32,18 @@ public struct EMVDataRenderer: View {
                     }
                 }
             }
+            Button("Bla") {
+                Task {
+                    do {
+                        let granted = try await UNUserNotificationCenter.current().requestAuthorization(
+                            options: [.alert, .badge, .sound]
+                        )
+                        print("Permissions granted")
+                    } catch {
+                        print("Not granted")
+                    }
+                }
+            }
         }
     }
 }

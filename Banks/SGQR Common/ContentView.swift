@@ -11,11 +11,13 @@ public struct ContentView: View {
     @Binding var document: SGQRDocument
     var bankName: String
     var url: URL?
+    var color: Color
     
-    public init(document: Binding<SGQRDocument>, bankName: String, fileURL: URL?) {
+    public init(document: Binding<SGQRDocument>, bankName: String, fileURL: URL?, color: Color) {
         self._document = document
         self.bankName = bankName
         self.url = fileURL
+        self.color = color
         
         print("This is my file URL \(String(describing: fileURL))")
     }
@@ -27,9 +29,11 @@ public struct ContentView: View {
                 .fontWeight(Font.Weight.bold)
             EMVDataRenderer(data: document.fields, structuredTags: Set(["26"]))
         }
+        .background(color)
     }
 }
 
 #Preview {
-    ContentView(document: .constant(SGQRDocument.init(text: SGQRDocument.SAMPLE_DOCUMENT)), bankName: "Sample Bank", fileURL: nil)
+    ContentView(document: .constant(SGQRDocument.init(text: SGQRDocument.SAMPLE_DOCUMENT)), bankName: "Sample Bank", fileURL: nil,
+                color: Color.white)
 }

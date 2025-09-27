@@ -33,7 +33,7 @@
 			<key>UTTypeDescription</key>
 			<string>SGQR data (Birch)</string>
 			<key>UTTypeIdentifier</key>
-			<string>sg.gov.mas.sgqr-data.birch</string>
+			<string>sg.gov.mas.sgqr-data</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>

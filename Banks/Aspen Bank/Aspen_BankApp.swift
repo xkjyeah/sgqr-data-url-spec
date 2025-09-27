@@ -11,10 +11,16 @@ import SGQR_Common
 @main
 struct Aspen_BankApp: App {
     @State private var document: SGQRDocument = SGQRDocument(text: "0005Empty")
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            ContentView(document: $document, bankName: "Aspen Bank", fileURL: nil)
+            ContentView(document: $document, bankName: "Aspen Bank", fileURL: nil, color: Color(.sRGB, red: 0.9, green: 0.9, blue: 1.0))
+                .onAppear {
+                    self.appDelegate.setDocumentUpdater {
+                        self.document = SGQRDocument(text: $0)
+                    }
+                }
                 .onOpenURL { url in
                     handleURL(url)
                 }

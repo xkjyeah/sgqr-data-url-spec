@@ -12,7 +12,24 @@ public struct ParsedField : Identifiable {
 }
 
 public class DataParser {
-    static func parseSGQRString(_ sgqrString: String) -> [ParsedField] {
+    public let rawString : String
+    lazy var parsedFieldsByTag: Dictionary<String, (ParsedField, DataParser)> = {
+        let parsedFields = DataParser.parseSGQRString(self.rawString)
+        print(parsedFields)
+        return Dictionary(uniqueKeysWithValues: parsedFields.map { ($0.tag, ($0, DataParser(str: $0.value))) })
+    }()
+    
+    public init(str: String) {
+        self.rawString = str
+    }
+    
+    public func get(_ tags: String...) -> String? {        
+        return tags.reduce(self) { (acc, tag) in
+            acc?.parsedFieldsByTag[tag]?.1
+        }?.rawString
+    }
+    
+    public static func parseSGQRString(_ sgqrString: String) -> [ParsedField] {
         var fields: [ParsedField] = []
         var index = sgqrString.startIndex
         var idCounter = 0

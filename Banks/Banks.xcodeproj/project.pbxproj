@@ -14,6 +14,11 @@
 		67AE69112E36233400ED0B91 /* SGQR_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; };
 		67AE69122E36233400ED0B91 /* SGQR_Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		67E2E66C2E864A18009C6034 /* AspenShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 67E2E6622E864A18009C6034 /* AspenShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		67E2E6712E865047009C6034 /* SGQR_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; };
+		67E2E6722E865048009C6034 /* SGQR_Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		67E2E6932E879396009C6034 /* BirchShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 67E2E6892E879396009C6034 /* BirchShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		67E2E6992E8793AF009C6034 /* SGQR_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; };
+		67E2E69A2E8793AF009C6034 /* SGQR_Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67AE68E92E36201700ED0B91 /* SGQR_Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 67E2E6612E864A18009C6034;
 			remoteInfo = AspenShareExtension;
+		};
+		67E2E6732E865048009C6034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 675161222E2E57D800E002C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67AE68E82E36201700ED0B91;
+			remoteInfo = "SGQR Common";
+		};
+		67E2E6912E879396009C6034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 675161222E2E57D800E002C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67E2E6882E879396009C6034;
+			remoteInfo = BirchShareExtension;
+		};
+		67E2E69B2E8793AF009C6034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 675161222E2E57D800E002C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67AE68E82E36201700ED0B91;
+			remoteInfo = "SGQR Common";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,6 +100,39 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67E2E6752E865048009C6034 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				67E2E6722E865048009C6034 /* SGQR_Common.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E2E6982E879396009C6034 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				67E2E6932E879396009C6034 /* BirchShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E2E69D2E8793AF009C6034 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				67E2E69A2E8793AF009C6034 /* SGQR_Common.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +140,7 @@
 		67AE68B92E361F0300ED0B91 /* Birch Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birch Bank.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67AE68E92E36201700ED0B91 /* SGQR_Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SGQR_Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E2E6622E864A18009C6034 /* AspenShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AspenShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E2E6892E879396009C6034 /* BirchShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BirchShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -104,6 +164,13 @@
 				Info.plist,
 			);
 			target = 67E2E6612E864A18009C6034 /* AspenShareExtension */;
+		};
+		67E2E6972E879396009C6034 /* Exceptions for "BirchShareExtension" folder in "BirchShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 67E2E6882E879396009C6034 /* BirchShareExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -137,6 +204,14 @@
 			path = AspenShareExtension;
 			sourceTree = "<group>";
 		};
+		67E2E68A2E879396009C6034 /* BirchShareExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				67E2E6972E879396009C6034 /* Exceptions for "BirchShareExtension" folder in "BirchShareExtension" target */,
+			);
+			path = BirchShareExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +242,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E2E6712E865047009C6034 /* SGQR_Common.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E2E6862E879396009C6034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E2E6992E8793AF009C6034 /* SGQR_Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +264,7 @@
 				67AE68BA2E361F0300ED0B91 /* Birch Bank */,
 				67AE68EA2E36201700ED0B91 /* SGQR Common */,
 				67E2E6632E864A18009C6034 /* AspenShareExtension */,
+				67E2E68A2E879396009C6034 /* BirchShareExtension */,
 				67AE690F2E3622D700ED0B91 /* Frameworks */,
 				6751612B2E2E57D800E002C6 /* Products */,
 			);
@@ -192,6 +277,7 @@
 				67AE68B92E361F0300ED0B91 /* Birch Bank.app */,
 				67AE68E92E36201700ED0B91 /* SGQR_Common.framework */,
 				67E2E6622E864A18009C6034 /* AspenShareExtension.appex */,
+				67E2E6892E879396009C6034 /* BirchShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,11 +336,13 @@
 				67AE68B62E361F0300ED0B91 /* Frameworks */,
 				67AE68B72E361F0300ED0B91 /* Resources */,
 				67AE69132E36233400ED0B91 /* Embed Frameworks */,
+				67E2E6982E879396009C6034 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				67AE690A2E3621F500ED0B91 /* PBXTargetDependency */,
+				67E2E6922E879396009C6034 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				67AE68BA2E361F0300ED0B91 /* Birch Bank */,
@@ -296,10 +384,12 @@
 				67E2E65E2E864A18009C6034 /* Sources */,
 				67E2E65F2E864A18009C6034 /* Frameworks */,
 				67E2E6602E864A18009C6034 /* Resources */,
+				67E2E6752E865048009C6034 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				67E2E6742E865048009C6034 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				67E2E6632E864A18009C6034 /* AspenShareExtension */,
@@ -309,6 +399,30 @@
 			);
 			productName = AspenShareExtension;
 			productReference = 67E2E6622E864A18009C6034 /* AspenShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		67E2E6882E879396009C6034 /* BirchShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E2E6942E879396009C6034 /* Build configuration list for PBXNativeTarget "BirchShareExtension" */;
+			buildPhases = (
+				67E2E6852E879396009C6034 /* Sources */,
+				67E2E6862E879396009C6034 /* Frameworks */,
+				67E2E6872E879396009C6034 /* Resources */,
+				67E2E69D2E8793AF009C6034 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67E2E69C2E8793AF009C6034 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				67E2E68A2E879396009C6034 /* BirchShareExtension */,
+			);
+			name = BirchShareExtension;
+			packageProductDependencies = (
+			);
+			productName = BirchShareExtension;
+			productReference = 67E2E6892E879396009C6034 /* BirchShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -333,6 +447,9 @@
 					67E2E6612E864A18009C6034 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					67E2E6882E879396009C6034 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 675161252E2E57D800E002C6 /* Build configuration list for PBXProject "Banks" */;
@@ -353,6 +470,7 @@
 				67AE68B82E361F0300ED0B91 /* Birch Bank */,
 				67AE68E82E36201700ED0B91 /* SGQR Common */,
 				67E2E6612E864A18009C6034 /* AspenShareExtension */,
+				67E2E6882E879396009C6034 /* BirchShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -380,6 +498,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		67E2E6602E864A18009C6034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E2E6872E879396009C6034 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,6 +544,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67E2E6852E879396009C6034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -436,6 +568,21 @@
 			isa = PBXTargetDependency;
 			target = 67E2E6612E864A18009C6034 /* AspenShareExtension */;
 			targetProxy = 67E2E66A2E864A18009C6034 /* PBXContainerItemProxy */;
+		};
+		67E2E6742E865048009C6034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67AE68E82E36201700ED0B91 /* SGQR Common */;
+			targetProxy = 67E2E6732E865048009C6034 /* PBXContainerItemProxy */;
+		};
+		67E2E6922E879396009C6034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67E2E6882E879396009C6034 /* BirchShareExtension */;
+			targetProxy = 67E2E6912E879396009C6034 /* PBXContainerItemProxy */;
+		};
+		67E2E69C2E8793AF009C6034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67AE68E82E36201700ED0B91 /* SGQR Common */;
+			targetProxy = 67E2E69B2E8793AF009C6034 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -791,6 +938,54 @@
 			};
 			name = Release;
 		};
+		67E2E6952E879396009C6034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BirchShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BirchShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.xkjyeah.Birch-Bank-App.BirchShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		67E2E6962E879396009C6034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BirchShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BirchShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.xkjyeah.Birch-Bank-App.BirchShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -835,6 +1030,15 @@
 			buildConfigurations = (
 				67E2E66E2E864A18009C6034 /* Debug */,
 				67E2E66F2E864A18009C6034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67E2E6942E879396009C6034 /* Build configuration list for PBXNativeTarget "BirchShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E2E6952E879396009C6034 /* Debug */,
+				67E2E6962E879396009C6034 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
