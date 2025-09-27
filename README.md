@@ -20,7 +20,7 @@ To use a diagram I previously made:
 Deep-linking for payment schemes have been around since at least 2017 with
 UPI. UPI uses a deep-linking URL scheme that starts with `upi://pay?...`.
 
-The problem is, unfortunately, iOS. For some bizarre reason, Apple does not
+The problem is, unfortunately, iOS. Bizarrely, Apple does not
 think that it's a good idea to allow multiple apps to support the same URL
 scheme. This means that, when you activate a URL like `upi://`, an arbitrary
 application that supports UPI will be selected. It does not matter whether you
@@ -31,16 +31,16 @@ To quote [Apple documentation](https://developer.apple.com/documentation/xcode/d
 
 Note: Android has no such limitation.
 
-Apple's limitations on custom URL schemes is really odd, and one would suspect it's a ploy
+Apple's limitations on custom URL schemes is really odd,
+<!-- and one would suspect it's a ploy
 to force applications to use Apply Pay for the most seamless experience possible (and thence
-take their a 30% cut). This would, however, make it really difficult to use schemes like
-SGQR, DuitNow, etc. that depend on an _ecosystem_ of interoperable apps.
+take their a 30% cut). This would, however, --> makes it really difficult to use custom URL schemes with
+payment methods like SGQR, UPI, PromptPay or PayNow that depend on an _ecosystem_ of interoperable apps.
 
-Nevertheless, whether the conspiracy is real is a matter for regulators to decide.
-I'm just here to propose an alternative.
+Therefore, I'm proposing a workaround that uses the "Share" feature.
 
-I will not bother to define a spec for Android phones, because it's dead simple to define
-a new URL scheme.
+<!--Nevertheless, whether the conspiracy is real is a matter for regulators to decide.
+I'm just here to propose an alternative.-->
 
 ## The Specification (Apple phones)
 
@@ -91,6 +91,10 @@ This may be achieved by defining `NSExtensionActivationRule` with the following 
 </string>
 ```
 
+With this, your app will appear whenever an attachment of type `application/vnd.sg.gov.mas.sgqr-data` is shared.
+
+![Screenshot of share screen](images/sharing-screen.png)
+
 ### 3. Triggering the payment interface
 
 (This section does not prescribe any hard recommendations, but suggests a solution that worked in September 2025).
@@ -103,32 +107,35 @@ it is impossible to *open* your main payment application after SGQR data is shar
 There are [workarounds](https://stackoverflow.com/questions/27506413/share-extension-to-open-containing-app)
 that existed but these gaps have been closed as of time of writing.
 
-#### 3.2 Proposal to overcome the limitations
+#### 3.2 Overcoming the limitations with notifications
 
 Share Extensions may emit a notification telling a user to "Continue payment in &lt;favourite banking app&gt;".
 Tapping on the notification will transfer control to the main application.
 Data contained in the notification can contain payment destination data, such as recipient, amount, and
 descriptions.
 
+![Screenshot of notification](images/notifications.png)
+
 #### 3.3 Sample project
 
 This respository contains an example iPhone project, created with much help from ChatGPT and Gemini.
+Note that this is my first time writing an iPhone app, so do not expect idiomatic iOS code in there.
 
 The iPhone project has two apps:
 * "Aspen" banking app
 * "Birch" banking app
 
-Both these apps support the SGQR Sharing Specification. With this, the end-user is **always
-prompted to choose a supported banking app**. Therefore, there will be no arbitrary preference
+With both apps supporting the SGQR Sharing Specification, the end-user is **always
+prompted to choose a supported banking app**. There is be no arbitrary preference
 for one app over another. This is the advantage of the Sharing Specification over other possible
 implementations like custom URL schemes or custom file types.
 
+The only downside is the fact that users **must tap on the notification**, and **must have enabled app notifications**
+for the scheme to work.
+
 ![Screen recording of how we can use share extensions to allow choice of banking app to make payment with SGQR](output.gif)
 
-
-
 <script>
-
 function shareSomething(mimeType, extension) {
     const phone = document.querySelector('#destination').value.slice(0, 8).padStart(8, '0')
     const amount = document.querySelector('#amount').value.toString()
