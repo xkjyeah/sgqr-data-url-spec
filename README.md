@@ -105,7 +105,7 @@ that existed but these gaps have been closed as of time of writing.
 
 #### 3.2 Proposal to overcome the limitations
 
-Share Extensions may emit a notification telling a user to "Continue payment in &lt;favourite banking app".
+Share Extensions may emit a notification telling a user to "Continue payment in &lt;favourite banking app&gt;".
 Tapping on the notification will transfer control to the main application.
 Data contained in the notification can contain payment destination data, such as recipient, amount, and
 descriptions.
@@ -123,7 +123,7 @@ function shareSomething(mimeType, extension) {
 
     const file = new File(
         [buf],
-        `payment_to_${randomNumber}.${extension}`,
+        `payment_to_${phone}.${extension}`,
         {
             type: mimeType
         }
@@ -140,7 +140,7 @@ function shareSomething(mimeType, extension) {
 <input id="destination" type="tel" value="81234567">
 
 <label for="amount">Payment amount</label>
-<input id="amount" type="number">
+<input id="amount" type="number" value="42.65">
 
 <button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data', 'sgqr')">
 Pay!
