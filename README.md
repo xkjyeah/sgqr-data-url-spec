@@ -93,7 +93,7 @@ This may be achieved by defining `NSExtensionActivationRule` with the following 
 
 With this, your app will appear whenever an attachment of type `application/vnd.sg.gov.mas.sgqr-data` is shared.
 
-![Screenshot of share screen](images/sharing-screen.png)
+<img src="images/sharing-screen.png" alt="Screenshot of share screen" style="max-width: 300px; display: block; margin: auto">
 
 ### 3. Triggering the payment interface
 
@@ -114,7 +114,7 @@ Tapping on the notification will transfer control to the main application.
 Data contained in the notification can contain payment destination data, such as recipient, amount, and
 descriptions.
 
-![Screenshot of notification](images/notifications.png)
+<img src="images/notifications.png" alt="Screenshot of notification" style="max-width: 300px; display: block; margin: auto">
 
 #### 3.3 Sample project
 
@@ -133,7 +133,7 @@ implementations like custom URL schemes or custom file types.
 The only downside is the fact that users **must tap on the notification**, and **must have enabled app notifications**
 for the scheme to work.
 
-![Screen recording of how we can use share extensions to allow choice of banking app to make payment with SGQR](output.gif)
+<img alt="Screen recording of how we can use share extensions to allow choice of banking app to make payment with SGQR" src="images/output.gif" style="max-width: 300px; display: block; margin: auto"/>
 
 <script>
 function shareSomething(mimeType, extension) {
