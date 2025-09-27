@@ -21,7 +21,7 @@ Deep-linking for payment schemes have been around since at least 2017 with
 UPI. UPI uses a deep-linking URL scheme that starts with `upi://pay?...`.
 
 The problem is, unfortunately, iOS. For some bizarre reason, Apple does not
-think that it's a good idea to allow multiple apps to share support for a URL
+think that it's a good idea to allow multiple apps to support the same URL
 scheme. This means that, when you activate a URL like `upi://`, an arbitrary
 application that supports UPI will be selected. It does not matter whether you
 prefer Google Pay, PayTM or PhonePe -- the operating system will select a random one
@@ -31,39 +31,94 @@ To quote [Apple documentation](https://developer.apple.com/documentation/xcode/d
 
 Note: Android has no such limitation.
 
-Whatever the reason for Apple's limitations, in this document I am proposing a solution
-by which we can make payment methods like SGQR seamless in a pure online 
+Apple's limitations on custom URL schemes is really odd, and one would suspect it's a ploy
+to force applications to use Apply Pay for the most seamless experience possible (and thence
+take their a 30% cut). This would, however, make it really difficult to use schemes like
+SGQR, DuitNow, etc. that depend on an _ecosystem_ of interoperable apps.
 
-So, this is obviously a big fuck-you to payment schemes like SGQR, where the
-goal is to support an entire ecosystem of SGQR-supporting applications, not a
-monopolistic endeavour like Apple Pay. (While UPI didn't exist back in 2010 when [this problem started to be noticed](https://stackoverflow.com/questions/3213911/choosing-what-iphone-app-must-open-one-url-schema), it doesn't make sense for
-Apple to maintain this limitation in 2025).
-
-In any case, whether this is Apple abusing their monopoly position in the premium
-phone segment is a matter for RBI, ECB and other big regulators to decide. For me,
+Nevertheless, whether the conspiracy is real is a matter for regulators to decide.
 I'm just here to propose an alternative.
 
-## The Specification
+I will not bother to define a spec for Android phones, because it's dead simple to define
+a new URL scheme.
 
-Here's the data inside a sample SGQR (00020101021126380009SG.PAYNOW010100211+6591234567030115204000053037025802SG5902NA6009Singapore6304B5DB).
+## The Specification (Apple phones)
 
-Let's convert it to a data URL!
+### 1. File type
 
-<a href="data:application/vnd.sg.gov.mas.sgqr-data;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC" download="pay.sgqr">Download!</a>
+We will define a new file type:
 
-<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6594445555030115204000053037025802SG5902NA6009Singapore6304AAAA" download="a1.sgqr">Download!</a>
-<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6595556666030115204000053037025802SG5902NA6009Singapore6304BBBB" download="b1.sgqr">Download!</a>
-<a href="data:application/vnd.sg.gov.mas.sgqr-data,00020101021126380009SG.PAYNOW010100211+6597778888030115204000053037025802SG5902NA6009Singapore6304CCCC" download="c1.sgqr">Download!</a>
+| Trait           | Xcode Info.plist field             | Value                          |
+|-----------------|------------------------------------|--------------------------------|
+| Univeral type identifier (UTI) | UTTypeIdentifier    | sg.gov.mas.sgqr-data           |
+| UTI parent      | UTTypeConformsTo                   | public.data                    |
+| MIME Type       | UTTypeTagSpecification / public.mime-type | application/vnd.sg.gov.mas.sgqr-data |
+| File extension  | UTTypeTagSpecification / public.filename-extension | sgqr           |
 
-<a href="data:application/vnd.sg.gov.mas.sgqr-data;base64,MDAwMjAxMDEwMjExMjYzODAwMDlTRy5QQVlOT1cwMTAxMDAyMTErNjU5MTIzNDU2NzAzMDExNTIwNDAwMDA1MzAzNzAyNTgwMlNHNTkwMk5BNjAwOVNpbmdhcG9yZTYzMDRCNURC">Open!</a>
+The contents of the file type is identical to the contents of an SGQR.
+
+For example, a file that pays to the phone number 91234567 will look like the following:
+
+```
+00020101021126380009SG.PAYNOW010100211+6591234567030115204000053037025802SG5902NA6009Singapore6304B5DB
+```
+
+#### 1.1 UTImportedTypeDeclarations
+
+Applications that support SGQR payments shall define a type declaration under `UTImportedTypeDeclarations`,
+for SGQR data, and never under `UTExportedTypeDeclarations`. A declaration under
+`UTExportedTypeDeclarations` shall be reserved for applications released by MAS.
+
+The `UTImportedTypeDeclarations` shall define the UTI parent, MIME type and file extension as per part 1.
+
+### 2. Applications that support SGQR payments
+
+Applications that support SGQR payments _must_ define a Share Extension that accepts the UTI specified in part 1.
+
+This may be achieved by defining `NSExtensionActivationRule` with the following data
+```xml
+<key>NSExtensionActivationRule</key>
+<string>
+    SUBQUERY (
+        extensionItems,
+        $extensionItem,
+        SUBQUERY (
+            $extensionItem.attachments,
+            $attachment,
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;sg.gov.mas.sgqr-data&quot;
+        ).@count >= 1
+    ).@count >= 1
+</string>
+```
+
+### 3. Triggering the payment interface
+
+(This section does not prescribe any hard recommendations, but suggests a solution that worked in September 2025).
+
+#### 3.1 Understanding the limitations
+
+Apple does not seem to permit Share Extensions to transfer control to the main application. Therefore,
+it is impossible to *open* your main payment application after SGQR data is shared.
+
+There are (workarounds)[https://stackoverflow.com/questions/27506413/share-extension-to-open-containing-app]
+that existed but these gaps have been closed as of time of writing.
+
+#### 3.2 Proposal to overcome the limitations
+
+Share Extensions may emit a notification telling a user to "Continue payment in &lt;favourite banking app".
+Tapping on the notification will transfer control to the main application.
+Data contained in the notification can contain payment destination data, such as recipient, amount, and
+descriptions.
+
+This respository contains an example iPhone project, created with much help from ChatGPT and Gemini.
 
 <script>
 
 function shareSomething(mimeType, extension) {
-    // Generate a random 8-digit number starting with 8 or 9 to simulate a phone number
-    const randomNumber = Math.floor(80000000 + Math.random() * 20000000);
+    const phone = document.querySelector('#destination').value.slice(0, 8).padStart(8, '0')
+    const amount = document.querySelector('#amount').value
 
-    const dataText = `00020101021126380009SG.PAYNOW010100211+65${randomNumber}030115204000053037025802SG5902NA6009Singapore6304CCCC`
+    const dataText = `00020101021126380009SG.PAYNOW010100211+65${randomNumber}03011520400005303702${amount.length.toString().padStart(2, '0')}${amount}5802SG5902NA6009Singapore6304CCCC`
     const buf = new TextEncoder().encode(dataText)
 
     const file = new File(
@@ -81,14 +136,13 @@ function shareSomething(mimeType, extension) {
 
 </script>
 
+<label for="destination">Pay to phone number</label>
+<input id="destination" type="tel" value="81234567">
+
+<label for="amount">Payment amount</label>
+<input id="amount" type="number">
+
 <button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data', 'sgqr')">
-Share application/vnd.sg.gov.mas.sgqr-data sgqr
+Pay!
 </button>
 
-<button onclick="shareSomething('text/plain', 'txt')">
-Share text/plain txt
-</button>
-
-<button onclick="shareSomething('text/vnd.sg.gov.mas.sgqr-data', 'sgqs')">
-Share text/vnd.sg.gov.mas.sgqr-data sgqs
-</button>
