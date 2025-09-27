@@ -100,7 +100,7 @@ This may be achieved by defining `NSExtensionActivationRule` with the following 
 Apple does not seem to permit Share Extensions to transfer control to the main application. Therefore,
 it is impossible to *open* your main payment application after SGQR data is shared.
 
-There are (workarounds)[https://stackoverflow.com/questions/27506413/share-extension-to-open-containing-app]
+There are [workarounds](https://stackoverflow.com/questions/27506413/share-extension-to-open-containing-app)
 that existed but these gaps have been closed as of time of writing.
 
 #### 3.2 Proposal to overcome the limitations
