@@ -123,6 +123,10 @@ prompted to choose a supported banking app**. Therefore, there will be no arbitr
 for one app over another. This is the advantage of the Sharing Specification over other possible
 implementations like custom URL schemes or custom file types.
 
+![Screen recording of how we can use share extensions to allow choice of banking app to make payment with SGQR](output.gif)
+
+
+
 <script>
 
 function shareSomething(mimeType, extension) {
