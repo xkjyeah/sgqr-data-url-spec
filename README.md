@@ -1,5 +1,3 @@
-# SGQR Sharing Specification
-
 ## Background
 
 SGQR does not support deep linking today. That is, for any phone app or website that wants to offer PayNow, the user must follow
