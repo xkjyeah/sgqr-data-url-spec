@@ -20,6 +20,7 @@ enum EMVCoFormatError : Error {
 
 public struct SGQRDocument: FileDocument {
     var fields: [ParsedField]
+    var dataParser: DataParser
     
     public static let SAMPLE_DOCUMENT = "0006HELLO!"
     public static var readableContentTypes = [UTType.sgqrData, UTType.plainText]
@@ -27,17 +28,17 @@ public struct SGQRDocument: FileDocument {
     public init(text: String) {
         print("Initializing with text...")
         print(text)
+        self.dataParser = DataParser(str: text)
         self.fields = DataParser.parseSGQRString(text)
     }
 
     public init(configuration: ReadConfiguration) throws {
-        print("What the heck is going on?")
-        print(configuration.file)
         guard let data = configuration.file.regularFileContents,
               let string = String(data: data, encoding: .nonLossyASCII)
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
+        self.dataParser = DataParser(str: string)
         fields = DataParser.parseSGQRString(string)
     }
     

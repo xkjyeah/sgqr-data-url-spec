@@ -23,13 +23,73 @@ public struct ContentView: View {
     }
 
     public var body: some View {
-        VStack {
+        Grid {
             Text(bankName)
                 .font(Font.custom("Avenir Next", size: 24))
                 .fontWeight(Font.Weight.bold)
+            
+            Spacer()
+                .gridCellUnsizedAxes(.horizontal)
+            
+            GridRow {
+                Text("Pay to")
+                    .font(Font.custom("Avenir Next", size: 20))
+                    .fontWeight(Font.Weight.bold)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                
+                Text(document.dataParser.get("26", "02") ?? "(unknown)")
+                    .font(Font.custom("Avenir Next", size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+            GridRow {
+                Text("Amount")
+                    .font(Font.custom("Avenir Next", size: 20))
+                    .fontWeight(Font.Weight.bold)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                
+                Text("$" + (document.dataParser.get("54") ?? ""))
+                    .font(Font.custom("Avenir Next", size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+            GridRow {
+                Button {
+                    print("Do nothing")
+                } label: {
+                    Text("Make payment")
+                        .frame(maxWidth: .infinity)
+                        .font(Font.custom("Avenir Next", size: 24))
+                }
+                    .font(Font.custom("Avenir Next", size: 24))
+                    .gridCellColumns(2)
+                    .frame(maxWidth: .infinity)
+                    .buttonStyle(.borderedProminent)
+            }
+            
+            GridRow {
+                Button {
+                    print("Do nothing")
+                } label: {
+                    Text("Cancel")
+                        .frame(maxWidth: .infinity)
+                        .font(Font.custom("Avenir Next", size: 24))
+                }
+                    .gridCellColumns(2)
+                    .buttonStyle(.bordered)
+            }
+            
+            Spacer()
+            Divider()
+            
+            Text("Debug info")
+                .font(Font.custom("Avenir Next", size: 14))
             EMVDataRenderer(data: document.fields, structuredTags: Set(["26"]))
         }
+        .padding(30)
+        .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(color)
+        
     }
 }
 

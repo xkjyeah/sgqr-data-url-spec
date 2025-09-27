@@ -172,6 +172,20 @@
 			);
 			target = 67E2E6882E879396009C6034 /* BirchShareExtension */;
 		};
+		67E2E6A12E882232009C6034 /* Exceptions for "Aspen Bank" folder in "AspenShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"aspen icon.png",
+			);
+			target = 67E2E6612E864A18009C6034 /* AspenShareExtension */;
+		};
+		67E2E6A52E88223F009C6034 /* Exceptions for "Birch Bank" folder in "BirchShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"birch icon.png",
+			);
+			target = 67E2E6882E879396009C6034 /* BirchShareExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -179,6 +193,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				67AE69172E3626C700ED0B91 /* Exceptions for "Aspen Bank" folder in "Aspen Bank" target */,
+				67E2E6A12E882232009C6034 /* Exceptions for "Aspen Bank" folder in "AspenShareExtension" target */,
 			);
 			path = "Aspen Bank";
 			sourceTree = "<group>";
@@ -187,6 +202,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				67AE69182E3626CC00ED0B91 /* Exceptions for "Birch Bank" folder in "Birch Bank" target */,
+				67E2E6A52E88223F009C6034 /* Exceptions for "Birch Bank" folder in "BirchShareExtension" target */,
 			);
 			path = "Birch Bank";
 			sourceTree = "<group>";
