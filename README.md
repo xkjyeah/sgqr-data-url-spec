@@ -157,13 +157,20 @@ function shareSomething(mimeType, extension) {
 
 </script>
 
+#### 3.4 Testing
+
+If you've implemented the Sharing Specification, you can test your implementation by clicking "Pay"
+on the following form from the iPhone web browser.
+
+This form generates (almost valid) PayNow SGQR data (I've not implemented the checksum bits -- PRs are welcome :p).
+
 <label for="destination">Pay to phone number</label>
 <input id="destination" type="tel" value="81234567">
 
 <label for="amount">Payment amount</label>
 <input id="amount" type="number" value="42.65">
 
-<button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data', 'sgqr')">
+<button onclick="shareSomething('application/vnd.sg.gov.mas.sgqr-data', 'sgqr')" style="font-size: 120%; min-width: 150px">
 Pay!
 </button>
 
