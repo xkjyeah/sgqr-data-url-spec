@@ -125,7 +125,7 @@ The iPhone project has two apps:
 * "Aspen" banking app
 * "Birch" banking app
 
-With both apps supporting the SGQR Sharing Specification, the end-user is **always
+With both apps supporting the SGQR Sharing Specification, when making payment the end-user is **always
 prompted to choose a supported banking app**. There is be no arbitrary preference
 for one app over another. This is the advantage of the Sharing Specification over other possible
 implementations like custom URL schemes or custom file types.

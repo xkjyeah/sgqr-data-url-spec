@@ -31,53 +31,57 @@ public struct ContentView: View {
             Spacer()
                 .gridCellUnsizedAxes(.horizontal)
             
-            GridRow {
-                Text("Pay to")
-                    .font(Font.custom("Avenir Next", size: 20))
-                    .fontWeight(Font.Weight.bold)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+            Text("Pay from bank account")
+                .font(Font.custom("Avenir Next", size: 20))
+                .fontWeight(Font.Weight.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(document.dataParser.get("26", "02") ?? "(unknown)")
-                    .font(Font.custom("Avenir Next", size: 20))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            Text("Current account 012-34567")
+                .font(Font.custom("Avenir Next", size: 24))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 10)
             
-            GridRow {
-                Text("Amount")
-                    .font(Font.custom("Avenir Next", size: 20))
-                    .fontWeight(Font.Weight.bold)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                
-                Text("$" + (document.dataParser.get("54") ?? ""))
-                    .font(Font.custom("Avenir Next", size: 20))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            Text("Pay to")
+                .font(Font.custom("Avenir Next", size: 20))
+                .fontWeight(Font.Weight.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
-            GridRow {
-                Button {
-                    print("Do nothing")
-                } label: {
-                    Text("Make payment")
-                        .frame(maxWidth: .infinity)
-                        .font(Font.custom("Avenir Next", size: 24))
-                }
-                    .font(Font.custom("Avenir Next", size: 24))
-                    .gridCellColumns(2)
+            Text(document.dataParser.get("26", "02") ?? "(unknown)")
+                .font(Font.custom("Avenir Next", size: 24))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 10)
+            
+            Text("Amount")
+                .font(Font.custom("Avenir Next", size: 20))
+                .fontWeight(Font.Weight.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text("$" + (document.dataParser.get("54") ?? ""))
+                .font(Font.custom("Avenir Next", size: 24))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 20)
+            
+            Button {
+                print("Do nothing")
+            } label: {
+                Text("Make payment")
                     .frame(maxWidth: .infinity)
-                    .buttonStyle(.borderedProminent)
+                    .font(Font.custom("Avenir Next", size: 24))
             }
+                .font(Font.custom("Avenir Next", size: 24))
+                .gridCellColumns(2)
+                .frame(maxWidth: .infinity)
+                .buttonStyle(.borderedProminent)
             
-            GridRow {
-                Button {
-                    print("Do nothing")
-                } label: {
-                    Text("Cancel")
-                        .frame(maxWidth: .infinity)
-                        .font(Font.custom("Avenir Next", size: 24))
-                }
-                    .gridCellColumns(2)
-                    .buttonStyle(.bordered)
+            Button {
+                print("Do nothing")
+            } label: {
+                Text("Cancel")
+                    .frame(maxWidth: .infinity)
+                    .font(Font.custom("Avenir Next", size: 24))
             }
+                .gridCellColumns(2)
+                .buttonStyle(.bordered)
             
             Spacer()
             Divider()
