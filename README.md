@@ -11,10 +11,10 @@ a unwieldy multistep process:
 
 To use a diagram I previously made:
 
-<img alt="7 steps to pay with PayNow" src="images/paynow-steps.png" style="max-width: 500px" />
+<img alt="7 steps to pay with PayNow" src="images/paynow-steps.png" style="max-width: 500px; display: block; margin: auto;" />
 
 This document explains how we can simplify it to:
-<img alt="6 steps to pay with PayNow by using Sharing" src="images/new-paynow-steps.png" style="max-width: 500px" />
+<img alt="6 steps to pay with PayNow by using Sharing" src="images/new-paynow-steps.png" style="max-width: 500px; display: block; margin: auto;" />
 
 # Background: Why not deeplinking?
 
