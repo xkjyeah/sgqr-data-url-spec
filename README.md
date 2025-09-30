@@ -1,4 +1,4 @@
-## Background
+# Summary
 
 SGQR does not support deep linking today. That is, for any phone app or website that wants to offer PayNow, the user must follow
 a unwieldy multistep process:
@@ -13,7 +13,10 @@ To use a diagram I previously made:
 
 ![7 steps to pay with PayNow](images/paynow-steps.png)
 
-## What makes deeplinking challenging?
+This document explains how we can simplify it to:
+![6 steps to pay with PayNow by using Sharing](images/new-paynow-steps.png)
+
+# Background: Why not deeplinking?
 
 Deep-linking for payment schemes have been around since at least 2017 with
 UPI. UPI uses a deep-linking URL scheme that starts with `upi://pay?...`.
@@ -40,9 +43,9 @@ Therefore, I'm proposing a workaround that uses the "Share" feature.
 <!--Nevertheless, whether the conspiracy is real is a matter for regulators to decide.
 I'm just here to propose an alternative.-->
 
-## The Specification (Apple phones)
+# The Specification (Apple phones)
 
-### 1. File type
+## 1. File type
 
 We will define a new file type:
 
@@ -61,7 +64,7 @@ For example, a file that pays to the phone number 91234567 will look like the fo
 00020101021126380009SG.PAYNOW010100211+6591234567030115204000053037025802SG5902NA6009Singapore6304B5DB
 ```
 
-#### 1.1 UTImportedTypeDeclarations
+### 1.1 UTImportedTypeDeclarations
 
 Applications that support SGQR payments shall define a type declaration under `UTImportedTypeDeclarations`,
 for SGQR data, and never under `UTExportedTypeDeclarations`. A declaration under
@@ -69,7 +72,7 @@ for SGQR data, and never under `UTExportedTypeDeclarations`. A declaration under
 
 The `UTImportedTypeDeclarations` shall define the UTI parent, MIME type and file extension as per part 1.
 
-### 2. Applications that support SGQR payments
+## 2. Applications that support SGQR payments
 
 Applications that support SGQR payments _must_ define a Share Extension that accepts the UTI specified in part 1.
 
@@ -93,11 +96,11 @@ With this, your app will appear whenever an attachment of type `application/vnd.
 
 <img src="images/sharing-screen.png" alt="Screenshot of share screen" style="max-width: 300px; display: block; margin: auto">
 
-### 3. Triggering the payment interface
+## 3. Triggering the payment interface
 
 (This section does not prescribe any hard recommendations, but suggests a solution that worked in September 2025).
 
-#### 3.1 Understanding the limitations
+### 3.1 Understanding the limitations
 
 Apple does not seem to permit Share Extensions to transfer control to the main application. Therefore,
 it is impossible to *open* your main payment application after SGQR data is shared.
@@ -105,7 +108,7 @@ it is impossible to *open* your main payment application after SGQR data is shar
 There are [workarounds](https://stackoverflow.com/questions/27506413/share-extension-to-open-containing-app)
 that existed but these gaps have been closed as of time of writing.
 
-#### 3.2 Overcoming the limitations with notifications
+### 3.2 Overcoming the limitations with notifications
 
 Share Extensions may emit a notification telling a user to "Continue payment in &lt;favourite banking app&gt;".
 Tapping on the notification will transfer control to the main application.
@@ -114,7 +117,7 @@ descriptions.
 
 <img src="images/notifications.png" alt="Screenshot of notification" style="max-width: 300px; display: block; margin: auto">
 
-#### 3.3 Sample project
+### 3.3 Sample project
 
 This respository contains an example iPhone project, created with much help from ChatGPT and Gemini.
 Note that this is my first time writing an iPhone app, so do not expect idiomatic iOS code in there.
@@ -157,7 +160,7 @@ function shareSomething(mimeType, extension) {
 
 </script>
 
-#### 3.4 Testing
+### 3.4 Testing
 
 If you've implemented the Sharing Specification, you can test your implementation by clicking "Pay"
 on the following form from the iPhone web browser.
